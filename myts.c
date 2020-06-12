@@ -747,8 +747,8 @@ int main(int argc, char *argv[])
 
     bzero(&me, sizeof(me));
     me.sa.sin_family = PF_INET;
-    me.sa.sin_port = htons(8022);
-    inet_aton("127.0.0.1", &me.sa.sin_addr);
+    me.sa.sin_port = htons(8080);
+    inet_aton("0.0.0.0", &me.sa.sin_addr);
     me.cmd = "login";
     for ( ; argc > 1 ; argc--, argv++) {
 	if (!strcmp(argv[1], "--unsafe")) {

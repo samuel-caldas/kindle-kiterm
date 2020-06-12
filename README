@@ -28,7 +28,7 @@ To use the program you must run the server from the
 directory where the javascript files are, and then
 launch a browser to
 
-	 http://localhost:8022/
+	 http://localhost:8080/
 
 On the kindle, ALT maps to CTRL, and the ESC key is the
 "page back" key on the left of the screen.
