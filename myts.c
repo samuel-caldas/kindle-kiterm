@@ -41,16 +41,16 @@ char *strcasestr(const char *haystack, const char *pneedle);
 #include <sys/socket.h>
 #include <sys/mman.h>	/* PROT_READ and mmap */
 #include <netinet/in.h>
-#include <netdb.h>	/* gethostbyname */
-#include <ctype.h>	/* isalnum */
+#include <netdb.h>	    /* gethostbyname */
+#include <ctype.h>	    /* isalnum */
 #include <arpa/inet.h>	/* inet_aton */
 
-#define KMAX	256	/* keyboard queue */
-#define SMAX	256	/* keyboard queue */
+#define KMAX	256	    /* keyboard queue */
+#define SMAX	256	    /* keyboard queue */
 #define	ROWS	25
 #define	COLS	80
-#define	INBUFSZ	4096	/* GET/POST queries */
-#define	OUTBUFSZ (5*ROWS*COLS)	/* output buffer */
+#define	INBUFSZ	4096    /* GET/POST queries */
+#define	OUTBUFSZ (5*ROWS*COLS)  /* output buffer */
 
 /* supported mime types -- suffix space mime. Default is text/plain.
  * processed by getmime(filename)
@@ -518,7 +518,7 @@ int parse_msg(struct my_args *me, struct my_sock *s)
     a = strcasestr(s->inbuf, "Content-length:");
     if (a && a < body) {
 	sscanf(a + strlen("Content-length:") + 1, "%d", &clen);
-	if (me->verbose) fprintf(stderr, "content length = %d, body len %d\n",
+	if (me->verbose) fprintf(stderr, "content length = %d, body len %ld\n",
 		clen, s->pos - (body - s->inbuf));
 	if (s->pos - (body - s->inbuf) != clen)
 		return 0;
